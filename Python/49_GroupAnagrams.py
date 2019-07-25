@@ -62,6 +62,7 @@ class Solution2(object):
             
 #        return result    
     
-data = ["ett","tee","tan","ate","nat","bat"]
+data = ["ett","ee","tan","ate","nat","bat"]
 result = Solution2().groupAnagrams(data)
 print(result)
+
