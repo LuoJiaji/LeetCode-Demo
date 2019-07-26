@@ -25,7 +25,7 @@ class Solution(object):
                 tmp <<= 1
                 i += 1
             
-        result = flag*result
+        result = flag * result
         # if result > 2**31-1 or result < -2**31:
         #     result = 2**31-1
         result = min(max(-2**32, result), 2**31-1)
