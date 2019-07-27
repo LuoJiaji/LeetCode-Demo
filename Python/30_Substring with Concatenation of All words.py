@@ -16,11 +16,15 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        if s == "" or words == []:
-            return []
+
 
         m = len(s)
         n = len(words[0])
+        k = len(words)
+        if s == "" or words == []:
+            return []
+        if m < n*k:
+            return result
         # print(m, n)
         result = []
         for starter in range(m - n + 1):
@@ -29,10 +33,10 @@ class Solution(object):
             W = copy.copy(words)
             # print(comp)
             while comp in W:
-                print(starter, comp, W)
+                # print(starter, comp, W)
                 W.remove(comp)
                 comp = s[starter + i*n : starter + (i+1)*n]
-                print(starter, comp, W)
+                # print(starter, comp, W)
                 i += 1
             if W == []:
                 # print(starter)  
