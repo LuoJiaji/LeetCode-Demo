@@ -1,3 +1,12 @@
+# /*
+#  * @Author: JJ Luo 
+#  * @Date: 2019-07-28 15:52:15 
+#  * @Last Modified by:   JJ Luo 
+#  * @Last Modified time: 2019-07-28 15:52:15 
+#  */
+
+
+# 自己写的超时了......
 class Solution(object):
     def trap(self, height):
         """
@@ -36,12 +45,42 @@ class Solution(object):
         return result
 
 
+class Solution2:
+    # @param A, a list of integers
+    # @return an integer
+    def trap(self, A):
+        result = 0
+        top = 0
+        for i in range(len(A)):
+            if A[top] < A[i]:
+                top = i
+        print(A)
 
+        second_top = 0
+        for i in range(top):
+            if A[second_top] < A[i]:
+                second_top = i
+            result += A[second_top] - A[i]
+            print(second_top, i, A[second_top], A[i], A[second_top] - A[i])
+
+        second_top = len(A) - 1
+        for i in reversed(range(top, len(A))):
+            if A[second_top] < A[i]:
+                second_top = i
+            result += A[second_top] - A[i]
+            print(second_top, i, A[second_top], A[i], A[second_top] - A[i])
+
+        return result
+
+
+# data = [0,1,0,2,1,0,1,3,2,1,2,1]
+# result = Solution().trap(data)
+# print(result)
+
+# data = []
+# result = Solution().trap(data)
+# print(result)
 
 data = [0,1,0,2,1,0,1,3,2,1,2,1]
-result = Solution().trap(data)
-print(result)
-
-data = []
-result = Solution().trap(data)
+result = Solution2().trap(data)
 print(result)
