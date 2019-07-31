@@ -57,7 +57,6 @@ data = [[1,4],[0,5]]
 result = Solution().merge(data)
 print(result)
 
-
 data = [[2,3],[4,5],[6,7],[8,9],[1,10]]
 # data.sort(key = lambda x:x[0])
 # print(data)
