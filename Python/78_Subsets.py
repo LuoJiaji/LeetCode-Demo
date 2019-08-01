@@ -4,7 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        
+
         l = len(nums)
         result = []
         for i in range(1,l+1):
@@ -26,10 +26,6 @@ class Solution(object):
         # print(ans)
         return ans
 
-
-
-
-
     def subsetsRecu(self, flag, curr, nums, k, start, result):
         if len(curr) == k:
             # print(curr)
@@ -43,7 +39,26 @@ class Solution(object):
                 curr.pop()
                 flag[i] = False
 
+class Solution1(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        nums.sort()
+        result = [[]]
+        for i in range(len(nums)):
+            size = len(result)
+            for j in range(size):
+                result.append(list(result[j]))
+                result[-1].append(nums[i])
+                print(result)
+        return result
+
 
 data = [1,2,3]
-result = Solution().subsets(data)
+result = Solution1().subsets(data)
 print(result)
+
+
+
