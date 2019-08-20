@@ -15,12 +15,11 @@ class Solution(object):
             if is_prime[i] == True:
                 # is_prime[2*i :n : i] = [False]*len(is_prime[2*i :n :i])
                 is_prime[i*i :n : i] = [False]*len(is_prime[i*i :n :i])
-        print(is_prime)
-        print(sum(is_prime))
+        # print(is_prime)
+        # print(sum(is_prime))
 
 result = Solution().countPrimes(10)
 print(result)
-
 
 # result = Solution().countPrimes(2)
 # print(result)
