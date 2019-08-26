@@ -35,7 +35,7 @@ class Solution(object):
             if flag[i] == False:
                 curr.append(nums[i])
                 flag[i] = True
-                self.subsetsRecu(flag, curr, nums, k, i, result)
+                self.subsetsRecu(flag, currcurr, nums, k, i, result)
                 curr.pop()
                 flag[i] = False
 
@@ -52,13 +52,10 @@ class Solution1(object):
             for j in range(size):
                 result.append(list(result[j]))
                 result[-1].append(nums[i])
-                print(result)
+            # print(result)
         return result
 
 
 data = [1,2,3]
 result = Solution1().subsets(data)
 print(result)
-
-
-

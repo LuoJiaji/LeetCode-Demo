@@ -26,7 +26,7 @@ class Solution(object):
         # print(min_l)
         return min_l
         
-
+    
 s = 7
 nums = [2,3,1,2,4,3]
 result = Solution().minSubArrayLen(s, nums)

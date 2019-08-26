@@ -24,6 +24,5 @@ class Solution(object):
         
 
 data = "A man, a plan, a canal: Panama"
-
 result = Solution().isPalindrome(data)
 print(result)
