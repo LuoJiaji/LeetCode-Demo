@@ -16,7 +16,6 @@ class Solution(object):
             heappush(sticks, s1 + s2)
         return res
 
-            
 sticks = [2,4,3]
 result = Solution().connectSticks(sticks)
 print(result)
