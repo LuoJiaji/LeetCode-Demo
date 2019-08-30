@@ -11,7 +11,7 @@ class Solution(object):
             alpha_dict[keyboard[i]] = i
             i += 1
          
-        # print(keyboard,word)
+        # print(keyboard, word)
         # print(alpha_dict)
         
         pre = 0
