@@ -4,54 +4,31 @@ class Solution(object):
         :type arr: List[int]
         :rtype: int
         """
+        n = len(arr)
+        f = [0]*n
+        g = [0]*n
 
-        i = 0 
-        begin = 0
-        end = 0
-        mid = 0
-        l = len(arr)
-        counter = 0
-        ans = min(arr)
-        # print('ans:', ans)
-        # while i < l:
-        for i in range(l):
-            if arr[i] >= 0 :
-                end = i
-            else:
-                
-                end = i
-                counter += 1
-            
-                if counter > 1:
-                    # print(arr[begin: end], begin, end, mid)
-                    s = arr[begin: end]
-                    if len(s) > 1:
-                        tmp = sum(s) - min(s)
-                        ans = max(ans, tmp)
-                    else:
-                        tmp = sum(s)
-                        ans = max(ans, tmp)
-                    # print(ans)
-                    begin = mid + 1
-                    # begin = i 
-                    end = i
-                    counter = 1
-                mid = end
+        for i in range(n):
+            f[i] = arr[i]
+            if i > 0 and f[i-1] > 0:
+                f[i] += f[i-1]
 
-        # print(arr[begin: end+1], begin, end, mid)
-        s = arr[begin: end+1]
-        if len(s) > 1:
-            tmp = sum(s) - min(s)
-            ans = max(ans, tmp)
-        else:
-            tmp = sum(s)
-            ans = max(ans, tmp)
-        # tmp = sum(s) - min(s)
-        # ans = max(ans, tmp)
-        # print(ans)
+        for i in reversed(range(n)):
+            g[i] = arr[i]
+            if i < n-1 and g[i+1] > 0:
+                g[i] += g[i+1]
+        
+        # print(f,g)
+        ans = f[0]
+        for i in range(n):
+            ans = max(ans, max(f[i], g[i]))
+            if i+1 < n:
+                ans = max(ans, f[i] + g[i+1])
+            if i+2 < n:
+                ans = max(ans, f[i] + g[i+2])
+            # print(ans,i,n)
 
         return ans
-
 
 arr = [1,-2,0,3]
 result = Solution().maximumSum(arr)
