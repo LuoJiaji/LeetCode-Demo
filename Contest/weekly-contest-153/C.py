@@ -18,7 +18,7 @@ class Solution(object):
             if i < n-1 and g[i+1] > 0:
                 g[i] += g[i+1]
         
-        # print(f,g)
+        print(f,g)
         ans = f[0]
         for i in range(n):
             ans = max(ans, max(f[i], g[i]))
