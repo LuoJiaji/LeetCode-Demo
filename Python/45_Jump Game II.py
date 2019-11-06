@@ -33,8 +33,3 @@ data = [2,3,1,1,4]
 result = Solution().jump(data)
 print(result)
 
-
-
-
-data = [2,3,1,1,4]
-
