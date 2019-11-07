@@ -59,7 +59,9 @@ class Solution:
             """
             if len(seg_list) <= 1:
                 return seg_list
-            sorted_list = [tp[1] for tp in sorted(zip([seg[0] for seg in seg_list], seg_list))]
+            # sorted_list = [tp[1] for tp in sorted(zip([seg[0] for seg in seg_list], seg_list))]
+            seg_list.sort()
+            sorted_list = seg_list
             new_list = []
             new_line_x1, new_line_x2 = sorted_list[0]
             i = 1
