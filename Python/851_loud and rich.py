@@ -59,6 +59,7 @@ class Solution:
                     if quiet[ans[rich]] < quiet[ans[poor]]:
                         ans[poor] = ans[rich]
                     next_temp.add(poor)
+            print(next_temp)
             temp = next_temp
 
         return ans
