@@ -46,27 +46,20 @@ class Solution(object):
         """
         if not grid:
             return 0
-        
+   
         def dfs(grid, row, col, x, y):
+            drct = [[0,1],[0,-1],[1,0],[-1,0]]
             flag = True
-            
-            if grid[x][y] == 1:
-                return flag
-            else:
-                if x == 0 or x == row - 1 or y == 0 or y == col - 1:
-                    flag = False
-
             grid[x][y] = 1
+            
+            if x == 0 or x == row - 1 or y == 0 or y == col - 1:
+                flag = False    
 
-            if x != 0:
-                flag = flag & dfs(grid, row, col, x - 1, y)
-            if x != row - 1:
-                flag = flag & dfs(grid, row, col, x + 1, y)
-            if y != 0:
-                flag = flag & dfs(grid, row, col, x, y - 1)
-            if y != col - 1:
-                flag = flag & dfs(grid, row, col, x, y + 1)
-            return flag 
+            for dx, dy in drct:
+                nx = x + dx; ny = y + dy
+                if 0 <= nx <= row - 1 and 0 <= ny <= col - 1 and grid[nx][ny] != 1:
+                    flag = flag & dfs(grid, row, col, nx, ny)
+            return flag
 
         row = len(grid)
         col = len(grid[0])
