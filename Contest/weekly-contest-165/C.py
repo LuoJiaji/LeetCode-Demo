@@ -83,3 +83,6 @@ matrix = [[1,0,1],
           [1,1,0]]
 res = Solution().countSquares(matrix)
 print(res)
+
+
+
