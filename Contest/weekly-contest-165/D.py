@@ -36,3 +36,5 @@ class Solution(object):
 s = "aabbc"; k = 3
 res = Solution().palindromePartition(s,k)
 print(res)
+
+
