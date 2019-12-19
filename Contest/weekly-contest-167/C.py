@@ -16,13 +16,24 @@ class Solution(object):
         # print(dp)
 
         ans = 0
-        for l in reversed(range(1, min(m+1, n+1))):
-            for i in range(1, m-l+2):
-                for j in range(1, n-l+2):
-                    tmp = dp[i+l-1][j+l-1] - dp[i+l-1][j-1] - dp[i-1][j+l-1] + dp[i-1][j-1]
+        l = 0
+        r = min(n, m)
+        while l <= r:
+            flag = False
+            o = (l+r)>>2
+            for i in range(o,m+1):
+                for j in range(o, n+1):
+                    tmp = dp[i][j] - dp[i-o][j] - dp[i][j-o] + dp[i-o][j-o]
                     if tmp <= threshold:
-                        return l
-        return 0
+                        flag = True
+                        break
+                if flag:
+                    break
+            if flag:
+                l = o+1
+            else:
+                r = o-1
+        return r
 
 mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]]
 threshold = 4

@@ -76,7 +76,6 @@ class Solution(object):
 # res = Solution().shortestPath(grid, k)
 # print(res)
 
-
 # grid = [[0,1,1],
 #         [1,1,1],
 #         [1,0,0]]
