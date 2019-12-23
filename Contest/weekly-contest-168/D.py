@@ -15,8 +15,7 @@ class Solution(object):
         ans = 0
 
         while curr_box:
-            b = curr_box[-1]
-            del curr_box[-1]
+            b = curr_box.pop()
             if  status[b] == 1 or b in curr_key:
                 print(b)
                 curr_box += containedBoxes[b]
