@@ -7,40 +7,30 @@ class Solution(object):
         :type maxSize: int
         :rtype: int
         """
-        begin = 0
-        end = 1
-        # print
-        ans = len(s)
-        sub_s = []
-        flag = False
-        while begin < end:
-            # print(s[end], s[begin: end])
-            if len(set(s[begin: end])) <= maxLetters and end < len(s):
-                end += 1
-                # if len(set(s[begin: end])) == maxLetters and s[end] in s[begin: end]:              
-            else:
-                begin += 1
-            # print('tmp',s[begin: end])
-            if len(set(s[begin: end])) <= maxLetters:
-                # print(s[begin: end])
-                # sub_s.append(s[begin: end])
-                i = 0
-                while begin + i < end:
-                    if len(set(s[begin + i : end])) <= maxLetters and minSize <= len(s[begin + i : end]) <= maxSize:
-                        sub_s.append(s[begin+i: end])
-                    i += 1
-                if end == len(s):
-                    flag = True
-            if flag:
-                break
-            # print(sub_s)
-        # print(sub_s)
-        ans = 0
-        for i in sub_s:
-            ans = max(sub_s.count(i), ans)
+        l = len(s)
+        mp = {}
+        for i in range(l):
+            t = {}
+            tt = ''
+            for j in range(i, min(i + maxSize, l)):
+                if s[j] not in t:
+                    t[s[j]] = 1
+                else:
+                    t[s[j]] += 1
+                tt += s[j]
+            # print(tt)
+                if len(t) <= maxLetters and minSize <= len(tt) <= maxSize :
+                    if tt in mp:
+                        mp[tt] += 1
+                    else:
+                        mp[tt] = 1
+        # print(mp)
+        # print(mp[max(mp, key = mp.get)])
+        if mp == {}:
+            return 0
+        ans = mp[max(mp, key = mp.get)]
         return ans
-                       
-
+                
 s = "aababcaab"; maxLetters = 2; minSize = 3; maxSize = 4
 res = Solution().maxFreq(s, maxLetters, minSize, maxSize)
 print(res)
@@ -63,3 +53,7 @@ minSize = 4
 maxSize = 6
 res = Solution().maxFreq(s, maxLetters, minSize, maxSize)
 print(res)
+
+# a = {'a':1, 'b':6, 'c':2}
+# print(len(a))
+# print(max(a, key=a.get))
